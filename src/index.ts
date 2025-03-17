@@ -13,11 +13,9 @@ import { connectDB } from "./infrastructure/db";
 const app = express();
 app.use(express.json()); // For parsing JSON requests
 app.use(clerkMiddleware());
-app.use(cors({ 
-  origin: "https://fed-storex-frontend-shirandu.netlify.app/",
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  credentials: true
-}));
+const cors = require('cors');
+app.use(cors({ origin: 'https://fed-storex-frontend-shirandu.netlify.app' }));
+
 
 // Remove or comment out the logging middleware
 // app.use((req, res, next) => {
